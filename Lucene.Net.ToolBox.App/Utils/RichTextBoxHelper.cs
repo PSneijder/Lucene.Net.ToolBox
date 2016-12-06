@@ -14,27 +14,27 @@ namespace Lucene.Net.Toolbox.Utils
         {
             return (string) d.GetValue(DocumentFromXaml);
         }
+
         public static void SetDocumentFromXaml(DependencyObject d, string value)
         {
             d.SetValue(DocumentFromXaml, value);
         }
-        public static readonly DependencyProperty DocumentFromXaml = DependencyProperty.RegisterAttached(
-            "DocumentFromXaml", typeof(string), typeof(RichTextBoxHelper), new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, new PropertyChangedCallback(PropertyChanged)));
+
+        public static readonly DependencyProperty DocumentFromXaml
+            = DependencyProperty.RegisterAttached("DocumentFromXaml", typeof(string), typeof(RichTextBoxHelper),
+                new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, PropertyChanged));
 
         private static void PropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var richTextBox = (RichTextBox) d;
             var xaml = GetDocumentFromXaml(richTextBox);
 
-            using (MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(GetDocumentFromXaml(richTextBox))))
+            using (MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(xaml)))
             {
-                FlowDocument doc = (FlowDocument)XamlReader.Load(stream);
-
-                // Set the document
-                richTextBox.Document = doc as FlowDocument;
+                FlowDocument document = (FlowDocument) XamlReader.Load(stream);
+                richTextBox.Document = document;
             }
 
-            // When the document changes, update the source
             richTextBox.TextChanged += (obj, args) =>
             {
                 RichTextBox textBox = obj as RichTextBox;

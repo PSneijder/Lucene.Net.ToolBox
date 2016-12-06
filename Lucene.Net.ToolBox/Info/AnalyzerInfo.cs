@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using Version = Lucene.Net.Util.Version;
 
@@ -14,9 +13,7 @@ namespace Lucene.Net.Toolbox.Impl.Info
     public sealed class AnalyzerInfo
         : IAnalyzer
     {
-        public string Field { get { return "DUMMYFIELD"; } }
-
-        public AnalyzerInfo() { }
+        public string Field => "DUMMYFIELD";
 
         public string Name { get; set; }
         public Type Type { get; set; }
@@ -28,7 +25,7 @@ namespace Lucene.Net.Toolbox.Impl.Info
 
         private IEnumerable<IToken> Analyze(string text, Version version = Constants.IndexVersion)
         {
-            Analyzer analyzer = CreateAnalyzer(version);
+            var analyzer = CreateAnalyzer(version);
 
             if(analyzer == null)
             {
@@ -41,16 +38,15 @@ namespace Lucene.Net.Toolbox.Impl.Info
         private Analyzer CreateAnalyzer(Version version)
         {
             Analyzer analyzer = null;
-            ConstructorInfo constructor = null;
+            var constructor = Type.GetConstructor(Type.EmptyTypes);
 
-            constructor = Type.GetConstructor(Type.EmptyTypes);
             if (constructor != null)
             {
                 analyzer = (Analyzer) Activator.CreateInstance(Type);
             }
             else
             {
-                constructor = Type.GetConstructor(new Type[] { typeof(Version) });
+                constructor = Type.GetConstructor(new [] { typeof(Version) });
                 if (constructor != null)
                 {
                     analyzer = (Analyzer) Activator.CreateInstance(Type, version);
@@ -82,7 +78,7 @@ namespace Lucene.Net.Toolbox.Impl.Info
                     StartOffset = offset.StartOffset,
                     EndOffset = offset.EndOffset,
                     Position = positionIncrement.PositionIncrement,
-                    Payload = payload.Payload != null ? payload.Payload.GetType() : null
+                    Payload = payload.Payload?.GetType()
                 });
             }
 

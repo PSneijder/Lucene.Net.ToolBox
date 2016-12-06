@@ -10,7 +10,7 @@ namespace Lucene.Net.Toolbox.ViewModels
     {
         #region Fields
 
-        IDiscovery _discovery;
+        private readonly IDiscovery _discovery;
         private string _status;
 
         #endregion
@@ -37,7 +37,7 @@ namespace Lucene.Net.Toolbox.ViewModels
 
         #region Properties
 
-        public string Status { get { return _status; } }
+        public string Status => _status;
         public string Text { get; set; }
 
         public IAnalyzer CurrentAnalyzer { get; set; }
@@ -60,7 +60,7 @@ namespace Lucene.Net.Toolbox.ViewModels
             _discovery.Discovered += OnDiscovering;
             _discovery.Discover();
 
-            _status = string.Format("Discovery is {0}", _discovery.IsRunning ? "Running" : "Stopped");
+            _status = $"Discovery is {(_discovery.IsRunning ? "Running" : "Stopped")}";
         }
 
         private void OnTokenChanging()

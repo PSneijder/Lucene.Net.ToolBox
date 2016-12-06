@@ -10,10 +10,14 @@ namespace Lucene.Net.Toolbox.Shared
     {
         public override void Load()
         {
-            Bind<IDiscovery>().To<FileSystemDiscovery>();
+            Bind<IDiscovery>()
+                .To<FileSystemDiscovery>();
 
-            Bind<IAnalyzer>().To<AnalyzerInfo>();
-            Bind<IToken>().To<TokenInfo>();
+            Bind<IAnalyzer>()
+                .To<AnalyzerInfo>();
+
+            Bind<IToken>()
+                .To<TokenInfo>();
         }
     }
 }

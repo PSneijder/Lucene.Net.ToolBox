@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net.Toolbox.Impl", "Lucene.Net.ToolBox\Lucene.Net.Toolbox.Impl.csproj", "{66E9E5AA-B6A8-48B8-A17A-E132B5E4E0BB}"
 EndProject
@@ -14,6 +14,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net.Toolbox.PlugIn", "Lucene.Net.Toolbox.Dummy\Lucene.Net.Toolbox.PlugIn.csproj", "{98FBC9D7-D78F-42B4-8122-4B5E060F608F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net.Toolbox.Tests", "Lucene.Net.Toolbox.Tests\Lucene.Net.Toolbox.Tests.csproj", "{1752FE59-C665-4CCD-B73A-60AECA9DA1B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{E237CE31-5D43-4960-8C74-B44AA2FE888B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9DFA7369-CC70-4DE1-8F8A-EA7827457D4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{37C0A728-FD58-4F5C-AEF5-4122F2CB46E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,5 +54,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{66E9E5AA-B6A8-48B8-A17A-E132B5E4E0BB} = {E237CE31-5D43-4960-8C74-B44AA2FE888B}
+		{AD7435E6-AD27-4A21-993B-33B5350FC497} = {37C0A728-FD58-4F5C-AEF5-4122F2CB46E9}
+		{98FBC9D7-D78F-42B4-8122-4B5E060F608F} = {E237CE31-5D43-4960-8C74-B44AA2FE888B}
+		{1752FE59-C665-4CCD-B73A-60AECA9DA1B0} = {9DFA7369-CC70-4DE1-8F8A-EA7827457D4D}
 	EndGlobalSection
 EndGlobal

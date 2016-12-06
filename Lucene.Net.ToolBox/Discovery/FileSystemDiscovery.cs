@@ -9,22 +9,22 @@ using Timer = System.Timers.Timer;
 
 namespace Lucene.Net.Toolbox.Impl.Discovery
 {
-    public class FileSystemDiscovery
+    public sealed class FileSystemDiscovery
         : BaseDiscovery
     {
-        private SynchronizationContext _context;
-        private FileSystemWatcher _watcher;
-        private Queue<FileSystemEventArgs> _queue;
-        private Timer _timer;
+        private readonly SynchronizationContext _context;
+        private readonly FileSystemWatcher _watcher;
+        private readonly Queue<FileSystemEventArgs> _queue;
+        private readonly Timer _timer;
 
-        private string _folder;
-        private string _extension;
-        private int _interval;
+        private readonly string _folder;
+        private readonly string _extension;
+        private readonly int _interval;
 
-        public string Folder {  get { return _folder; } }
-        public string Extension { get { return _extension; } }
-        public bool IsRunning { get { return _watcher != null ? _watcher.EnableRaisingEvents : false; } }
-        public int Interval { get { return _interval; } }
+        public string Folder => _folder;
+        public string Extension => _extension;
+        public bool IsRunning => _watcher?.EnableRaisingEvents ?? false;
+        public int Interval => _interval;
 
         public FileSystemDiscovery(string filePath, string fileExtension, int interval)
             : this()
@@ -69,12 +69,10 @@ namespace Lucene.Net.Toolbox.Impl.Discovery
 
             var path = GetOrCreateFolder(_folder);
             var files = Directory.EnumerateFiles(path, _extension);
-            if(files.Any())
+
+            foreach (var file in files)
             {
-                foreach (var file in files)
-                {
-                    DiscoverAnalyzers(file);
-                }
+                DiscoverAnalyzers(file);
             }
         }
 
@@ -112,7 +110,7 @@ namespace Lucene.Net.Toolbox.Impl.Discovery
             {
                 FileSystemEventArgs args = _queue.Dequeue();
 
-                _context.Post(new SendOrPostCallback(state => { DiscoverAnalyzers(args.FullPath); }), null);
+                _context.Post(state => { DiscoverAnalyzers(args.FullPath); }, null);
             }
         }
 

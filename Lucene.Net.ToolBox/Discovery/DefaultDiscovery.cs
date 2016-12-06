@@ -1,7 +1,7 @@
 ﻿
 namespace Lucene.Net.Toolbox.Impl.Discovery
 {
-    public class DefaultDiscovery
+    public sealed class DefaultDiscovery
         : BaseDiscovery
     {
         public bool IsRunning { get; set; }

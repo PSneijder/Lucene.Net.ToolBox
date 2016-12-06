@@ -7,7 +7,6 @@ using Ninject;
 namespace Lucene.Net.Toolbox
 {
     public partial class App
-        : Application
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
@@ -28,7 +27,9 @@ namespace Lucene.Net.Toolbox
         private IKernel CreateKernel()
         {
             var kernel = new StandardKernel(new SharedModule());
-            kernel.Bind<MainWindowViewModel>().ToSelf();
+
+            kernel.Bind<MainWindowViewModel>()
+                .ToSelf();
 
             return kernel;
         }

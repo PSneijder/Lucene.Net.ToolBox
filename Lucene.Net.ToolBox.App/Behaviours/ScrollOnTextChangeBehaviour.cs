@@ -43,9 +43,9 @@ namespace Lucene.Net.Toolbox.Behaviours
                 textBox.Loaded -= TextBoxLoaded;
                 textBox.Unloaded -= TextBoxUnloaded;
 
-                if (_associations.ContainsKey(textBox))
+                if (Associations.ContainsKey(textBox))
                 {
-                    _associations[textBox].Dispose();
+                    Associations[textBox].Dispose();
                 }
             }
         }
@@ -53,18 +53,20 @@ namespace Lucene.Net.Toolbox.Behaviours
         private static void TextBoxUnloaded(object sender, RoutedEventArgs routedEventArgs)
         {
             var textBox = (TextBox)sender;
-            _associations[textBox].Dispose();
+
+            Associations[textBox].Dispose();
             textBox.Unloaded -= TextBoxUnloaded;
         }
 
         private static void TextBoxLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
             var textBox = (TextBox)sender;
+
             textBox.Loaded -= TextBoxLoaded;
-            _associations[textBox] = new Capture(textBox);
+            Associations[textBox] = new Capture(textBox);
         }
 
-        private class Capture
+        private sealed class Capture
             : IDisposable
         {
             public Capture(TextBox textBox)
@@ -73,7 +75,7 @@ namespace Lucene.Net.Toolbox.Behaviours
                 TextBox.TextChanged += OnTextBoxOnTextChanged;
             }
 
-            private TextBox TextBox { get; set; }
+            private TextBox TextBox { get; }
 
             public void Dispose()
             {
@@ -86,8 +88,9 @@ namespace Lucene.Net.Toolbox.Behaviours
             }
         }
         
-        private static readonly Dictionary<TextBox, Capture> _associations = new Dictionary<TextBox, Capture>();
+        private static readonly Dictionary<TextBox, Capture> Associations = new Dictionary<TextBox, Capture>();
 
-        public static readonly DependencyProperty ScrollOnTextChangedProperty = DependencyProperty.RegisterAttached("ScrollOnTextChanged", typeof(bool), typeof(ScrollOnTextChangedBehaviour), new UIPropertyMetadata(false, OnScrollOnTextChanged));
+        public static readonly DependencyProperty ScrollOnTextChangedProperty =
+            DependencyProperty.RegisterAttached("ScrollOnTextChanged", typeof(bool), typeof(ScrollOnTextChangedBehaviour), new UIPropertyMetadata(false, OnScrollOnTextChanged));
     }
 }

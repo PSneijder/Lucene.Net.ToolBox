@@ -3,7 +3,6 @@ using Lucene.Net.Toolbox.Contracts;
 using Lucene.Net.Toolbox.Impl.Info;
 using System;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 
@@ -12,9 +11,9 @@ namespace Lucene.Net.Toolbox.Impl.Discovery
     public abstract class BaseDiscovery
         : IDiscovery
     {
-        protected string AssemblyName { get { return "Lucene.Net"; } }
+        protected string AssemblyName => "Lucene.Net";
 
-        bool IDiscovery.IsRunning { get { return true; } }
+        bool IDiscovery.IsRunning => true;
 
         public virtual void Discover() { }
 
@@ -22,33 +21,25 @@ namespace Lucene.Net.Toolbox.Impl.Discovery
 
         public event DiscoverEventHandler Discovered;
 
-        protected void OnDiscovered(IAnalyzer analyzer, EventArgs e)
+        protected void OnDiscovered(IAnalyzer analyzer, EventArgs args)
         {
-            if (Discovered != null)
-            {
-                Discovered(analyzer, e);
-            }
+            Discovered?.Invoke(analyzer, args);
         }
 
         protected void DiscoverAnalyzers(string fullPath)
         {
-            Assembly assembly = null;
-
             try
             {
-                FileStream fs = File.Open(fullPath, FileMode.Open, FileAccess.ReadWrite, FileShare.None);
-                fs.Close();
+                var assembly = Assembly.LoadFrom(fullPath);
 
-                assembly = Assembly.LoadFrom(fullPath);
+                if (assembly != null)
+                {
+                    Discover(assembly);
+                }
             }
             catch (Exception ex)
             {
                 Trace.WriteLine(ex);
-            }
-
-            if(assembly != null)
-            { 
-                Discover(assembly);
             }
         }
 
@@ -56,10 +47,15 @@ namespace Lucene.Net.Toolbox.Impl.Discovery
         {
             var assemblyName = Assembly
                 .GetExecutingAssembly()
-                .GetReferencedAssemblies()
-                .FirstOrDefault(a => a.Name == AssemblyName);
+                    .GetReferencedAssemblies()
+                        .FirstOrDefault(a => a.Name == AssemblyName);
 
-            Assembly assembly = Assembly.Load(assemblyName);
+            if (assemblyName == null)
+            { 
+                return;
+            }
+
+            var assembly = Assembly.Load(assemblyName);
 
             Discover(assembly);
         }
@@ -67,17 +63,15 @@ namespace Lucene.Net.Toolbox.Impl.Discovery
         private void Discover(Assembly assembly)
         {
             var analyzerTypes = assembly.GetExportedTypes()
-                 .Where(t => typeof(Analyzer).IsAssignableFrom(t))
-                 .Where(t => t != typeof(Analyzer))
-                 .Where(t => !t.IsAbstract);
+                    .Where(t => typeof(Analyzer).IsAssignableFrom(t) && t != typeof(Analyzer) && !t.IsAbstract);
 
             foreach (var analyzerType in analyzerTypes)
             {
-                var analyzer = CreateAnalyzer(analyzerType);
+                IAnalyzer analyzer = CreateAnalyzer(analyzerType);
 
                 OnDiscovered(analyzer, new EventArgs());
 
-                Trace.WriteLine(string.Format("Discovery: {0}, {1}", analyzer.Name, analyzer.Type.FullName));
+                Trace.WriteLine($"Discovery: {analyzer.Name}, {analyzer.Type.FullName}");
             }
         }
 
@@ -85,7 +79,7 @@ namespace Lucene.Net.Toolbox.Impl.Discovery
         {
             var analyzerName = type.Name;
 
-            AnalyzerInfo analyzerInfo = new AnalyzerInfo
+            var analyzerInfo = new AnalyzerInfo
             {
                 Name = analyzerName,
                 Type = type

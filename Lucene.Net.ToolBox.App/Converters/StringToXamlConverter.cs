@@ -19,12 +19,9 @@ namespace Lucene.Net.Toolbox.Converters
             var startOffset = values[1] as int?;
             var endOffset = values[2] as int?;
 
-            if (value != null)
-            {
-                return Convert(value.ToString(), startOffset, endOffset, ConversionValues.ToXaml);
-            }
-
-            return value;
+            return value != null
+                ? Convert(value, startOffset, endOffset, ConversionValues.ToXaml)
+                : null;
         }
 
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
@@ -58,9 +55,6 @@ namespace Lucene.Net.Toolbox.Converters
                     return @"<FlowDocument xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>" +
                             "<Paragraph>" + value + "</Paragraph>" +
                             "</FlowDocument>";
-
-                    default:
-                    break;
             }
 
             return string.Empty;
