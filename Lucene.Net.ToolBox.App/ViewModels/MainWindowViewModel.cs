@@ -4,24 +4,31 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Lucene.Net.Toolbox.Contracts;
+using Lucene.Net.Toolbox.Desktop.Utils;
 using Prism.Commands;
 
-namespace Lucene.Net.Toolbox.ViewModels
+namespace Lucene.Net.Toolbox.Desktop.ViewModels
 {
-    sealed class MainWindowViewModel
+    public sealed class MainWindowViewModel
         : INotifyPropertyChanged
     {
         #region Fields
 
         private readonly IDiscovery _discovery;
+        private readonly ITraceListener _traceListener;
+
         private string _status;
         private string _text;
+        private string _logOutput;
+        private IToken _currentToken;
+        private IAnalyzer _currentAnalyzer;
 
         #endregion
 
-        public MainWindowViewModel(IDiscovery discovery)
+        public MainWindowViewModel(IDiscovery discovery, ITraceListener traceListener)
         {
             _discovery = discovery;
+            _traceListener = traceListener;
 
             Text = "Welcome to the analysis viewer. This tool is used to demonstrate how different analyzers process text into tokens. You can edit this text to try different input such as numbers like 23231.23 or characters (this.mail@mailprovider.com). Once happy, select an Analyzer from the list of analyzers found on the current assemblies path and then hit the Analyze button. The tokens produced are shown below and when you select them the right panel shows their attributes, and the corresponding span in the original text is highlighted.";
 
@@ -56,8 +63,25 @@ namespace Lucene.Net.Toolbox.ViewModels
             }
         }
 
-        public IAnalyzer CurrentAnalyzer { get; set; }
-        public IToken CurrentToken { get; set; }
+        public string LogOutput
+        {
+            get { return _logOutput; }
+            set
+            {
+                _logOutput = value; OnPropertyChanged();
+            }
+        }
+
+        public IAnalyzer CurrentAnalyzer
+        {
+            get { return _currentAnalyzer; }
+            set { _currentAnalyzer = value; OnPropertyChanged(); }
+        }
+        public IToken CurrentToken
+        {
+            get { return _currentToken; }
+            set { _currentToken = value; OnPropertyChanged(); }
+        }
 
         public ObservableCollection<IAnalyzer> Analyzers { get; set; }
         public ObservableCollection<IToken> Tokens { get; set; }
@@ -73,6 +97,7 @@ namespace Lucene.Net.Toolbox.ViewModels
 
         private void Initialize()
         {
+            _traceListener.PropertyChanged += TraceOnPropertyChanged;
             _discovery.Discovered += OnDiscovering;
             _discovery.Discover();
 
@@ -97,6 +122,16 @@ namespace Lucene.Net.Toolbox.ViewModels
             Analyzers.Add(analyzer);
 
             CurrentAnalyzer = analyzer;
+        }
+
+        private void TraceOnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            var listener = sender as ITraceListener;
+
+            if (listener != null)
+            {
+                LogOutput = listener.Trace;
+            }
         }
 
         #region INotifyPropertyChanged Implementations

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Documents;
 
-namespace Lucene.Net.Toolbox.Utils.RichTextBox.Formatters
+namespace Lucene.Net.Toolbox.Desktop.Utils.RichTextBox.Formatters
 {
     interface ITextFormatter
     {

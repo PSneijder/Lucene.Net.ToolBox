@@ -1,10 +1,9 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Data;
 using System.Windows.Documents;
-using Lucene.Net.Toolbox.Utils.RichTextBox.Formatters;
+using Lucene.Net.Toolbox.Desktop.Utils.RichTextBox.Formatters;
 
-namespace Lucene.Net.Toolbox.Utils.RichTextBox
+namespace Lucene.Net.Toolbox.Desktop.Utils.RichTextBox
 {
     class EditableRichTextBox
         : System.Windows.Controls.RichTextBox

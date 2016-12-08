@@ -1,15 +1,14 @@
-﻿using System.Diagnostics;
-using Lucene.Net.Toolbox.Utils;
+﻿using Lucene.Net.Toolbox.Desktop.ViewModels;
 
-namespace Lucene.Net.Toolbox.Views
+namespace Lucene.Net.Toolbox.Desktop.Views
 {
     public partial class MainWindow
     {
-        public MainWindow()
+        public MainWindow(MainWindowViewModel viewModel)
         {
             InitializeComponent();
 
-            Trace.Listeners.Add(new TextBoxTraceListener(TraceListenerOutput));
+            DataContext = viewModel;
         }
     }
 }

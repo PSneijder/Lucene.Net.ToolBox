@@ -1,4 +1,4 @@
-﻿<controls:MetroWindow x:Class="Lucene.Net.Toolbox.Views.MainWindow"
+﻿<controls:MetroWindow x:Class="Lucene.Net.Toolbox.Desktop.Views.MainWindow"
                       x:Name="MetroWindow"
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,12 +7,14 @@
                       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
                       xmlns:interfaces="clr-namespace:Lucene.Net.Toolbox.Contracts;assembly=Lucene.Net.Toolbox.Contracts"
                       xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-                      xmlns:behaviours="clr-namespace:Lucene.Net.Toolbox.Behaviours"
-                      xmlns:richTextBox="clr-namespace:Lucene.Net.Toolbox.Utils.RichTextBox"
-                      xmlns:formatters="clr-namespace:Lucene.Net.Toolbox.Utils.RichTextBox.Formatters"
+                      xmlns:richTextBox="clr-namespace:Lucene.Net.Toolbox.Desktop.Utils.RichTextBox"
+                      xmlns:formatters="clr-namespace:Lucene.Net.Toolbox.Desktop.Utils.RichTextBox.Formatters"
+                      xmlns:behaviours="clr-namespace:Lucene.Net.Toolbox.Desktop.Behaviours"
                       mc:Ignorable="d"
                       Icon="../Resources/lucene-net-icon-256x256.ico"
-                      Title="{Binding Path=Status}" Height="600" Width="600">
+                      Title="{Binding Path=Status}" Height="600" Width="600"
+                      ResizeMode="CanResizeWithGrip"
+                      BorderThickness="0" GlowBrush="Black">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -83,27 +85,13 @@
                       ItemsSource="{Binding Path=Analyzers}"
                       SelectedItem="{Binding Path=CurrentAnalyzer}"
                       ItemTemplate="{StaticResource AnalyzerItemTemplate}" />
-            
+
             <Button Grid.Column="1"
                     Grid.Row="1"
                     Margin="5"
                     Content="Analyze"
                     Command="{Binding Path=AnalyzeCommand}"
                     CommandParameter="{Binding Path=CurrentAnalyzer}" />
-            
-            <!--<RichTextBox Grid.Column="0" 
-                         Grid.Row="0"
-                         Grid.ColumnSpan="2"
-                         Margin="5"
-                         VerticalScrollBarVisibility="Visible">
-                <utils:RichTextBoxHelper.DocumentFromXaml>
-                    <MultiBinding Converter="{StaticResource StringToXamlConverter}">
-                        <Binding Path="Text" Mode="OneWay" />
-                        <Binding Path="CurrentToken.StartOffset" Mode="OneWay" />
-                        <Binding Path="CurrentToken.EndOffset" Mode="OneWay" />
-                    </MultiBinding>
-                </utils:RichTextBoxHelper.DocumentFromXaml>
-            </RichTextBox>-->
 
             <richTextBox:EditableRichTextBox Grid.Column="0" 
                                              Grid.Row="0"
@@ -111,9 +99,11 @@
                                              Margin="5"
                                              VerticalScrollBarVisibility="Visible"
                                              Text="{Binding Path=Text, Mode=TwoWay}">
+                
                 <richTextBox:EditableRichTextBox.TextFormatter>
                     <formatters:PlainTextFormatter />
                 </richTextBox:EditableRichTextBox.TextFormatter>
+                
             </richTextBox:EditableRichTextBox>
 
         </Grid>
@@ -153,8 +143,13 @@
               Margin="15">
             <TextBox x:Name="TraceListenerOutput"
                      IsReadOnly="True"
-                     VerticalScrollBarVisibility="Visible"
-                     behaviours:ScrollOnTextChangedBehaviour.ScrollOnTextChanged="True" />
+                     Text="{Binding Path=LogOutput}"
+                     TextWrapping="NoWrap"
+                     VerticalScrollBarVisibility="Visible">
+                <i:Interaction.Behaviors>
+                    <behaviours:ScrollOnTextChangeBehaviour />
+                </i:Interaction.Behaviors>
+            </TextBox>
         </Grid>
     </Grid>
 </controls:MetroWindow>
