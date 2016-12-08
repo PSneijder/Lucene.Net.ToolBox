@@ -135,16 +135,21 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Behaviours\ScrollOnTextChangeBehaviour.cs" />
+    <Compile Include="Controls\GroupBoxControl.cs" />
     <Compile Include="DesktopModule.cs" />
     <Compile Include="Extensions\NinjectExtensions.cs" />
     <Compile Include="Modularity\AggregateModuleCatalog.cs" />
     <Compile Include="Modularity\DesktopBootstrapper.cs" />
     <Compile Include="Utils\ITraceListener.cs" />
-    <Compile Include="Utils\RichTextBox\EditableRichTextbox.cs" />
-    <Compile Include="Utils\RichTextBox\Formatters\HighlightTextFormatter.cs" />
-    <Compile Include="Utils\RichTextBox\Formatters\ITextFormatter.cs" />
+    <Compile Include="Controls\EditableRichTextbox.cs" />
+    <Compile Include="Controls\Formatters\HighlightTextFormatter.cs" />
+    <Compile Include="Controls\Formatters\ITextFormatter.cs" />
     <Compile Include="Utils\StringBuilderTraceListener.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Page Include="Resources\DesktopDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

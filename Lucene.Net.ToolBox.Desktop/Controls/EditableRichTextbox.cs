@@ -1,15 +1,15 @@
-﻿using System.Runtime.InteropServices;
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Media;
 using Lucene.Net.Toolbox.Contracts;
-using Lucene.Net.Toolbox.Desktop.Utils.RichTextBox.Formatters;
+using Lucene.Net.Toolbox.Desktop.Controls.Formatters;
 
-namespace Lucene.Net.Toolbox.Desktop.Utils.RichTextBox
+namespace Lucene.Net.Toolbox.Desktop.Controls
 {
     class EditableRichTextBox
-        : System.Windows.Controls.RichTextBox
+        : RichTextBox
     {
         #region Fields
 

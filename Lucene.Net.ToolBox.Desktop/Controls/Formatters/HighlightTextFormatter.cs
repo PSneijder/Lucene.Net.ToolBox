@@ -2,7 +2,7 @@
 using System.Windows.Media;
 using Lucene.Net.Toolbox.Contracts;
 
-namespace Lucene.Net.Toolbox.Desktop.Utils.RichTextBox.Formatters
+namespace Lucene.Net.Toolbox.Desktop.Controls.Formatters
 {
     sealed class HighlightTextFormatter
         : ITextFormatter
