@@ -62,7 +62,8 @@ namespace Lucene.Net.Toolbox.Impl.Discovery
 
         private void Discover(Assembly assembly)
         {
-            var analyzerTypes = assembly.GetExportedTypes()
+            var analyzerTypes = assembly
+                .GetExportedTypes()
                     .Where(t => typeof(Analyzer).IsAssignableFrom(t) && t != typeof(Analyzer) && !t.IsAbstract);
 
             foreach (var analyzerType in analyzerTypes)
