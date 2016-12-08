@@ -1,13 +1,12 @@
 ﻿using System.IO;
 using System.Text;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Markup;
 
 namespace Lucene.Net.Toolbox.Utils
 {
-    internal sealed class RichTextBoxHelper
+    sealed class RichTextBoxHelper
         : DependencyObject
     {
         public static string GetDocumentFromXaml(DependencyObject d)
@@ -26,7 +25,7 @@ namespace Lucene.Net.Toolbox.Utils
 
         private static void PropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var richTextBox = (RichTextBox) d;
+            var richTextBox = (System.Windows.Controls.RichTextBox) d;
             var xaml = GetDocumentFromXaml(richTextBox);
 
             using (MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(xaml)))
@@ -37,7 +36,7 @@ namespace Lucene.Net.Toolbox.Utils
 
             richTextBox.TextChanged += (obj, args) =>
             {
-                RichTextBox textBox = obj as RichTextBox;
+                System.Windows.Controls.RichTextBox textBox = obj as System.Windows.Controls.RichTextBox;
                 if (textBox != null)
                 {
                     SetDocumentFromXaml(richTextBox, XamlWriter.Save(textBox.Document));

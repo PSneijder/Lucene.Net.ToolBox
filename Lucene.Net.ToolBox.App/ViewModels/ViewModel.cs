@@ -8,7 +8,7 @@ using Prism.Commands;
 
 namespace Lucene.Net.Toolbox.ViewModels
 {
-    internal sealed class MainWindowViewModel
+    sealed class MainWindowViewModel
         : INotifyPropertyChanged
     {
         #region Fields

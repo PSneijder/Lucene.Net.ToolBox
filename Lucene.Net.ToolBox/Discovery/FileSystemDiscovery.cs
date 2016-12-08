@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Threading;
 using System.Timers;
 using Timer = System.Timers.Timer;
 
 namespace Lucene.Net.Toolbox.Impl.Discovery
 {
-    public sealed class FileSystemDiscovery
+    sealed class FileSystemDiscovery
         : BaseDiscovery
     {
         private readonly SynchronizationContext _context;

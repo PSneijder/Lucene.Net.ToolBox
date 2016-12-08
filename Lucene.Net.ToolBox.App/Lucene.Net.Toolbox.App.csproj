@@ -135,8 +135,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Behaviours\ScrollOnTextChangeBehaviour.cs" />
-    <Compile Include="Converters\StringToXamlConverter.cs" />
+    <Compile Include="Utils\RichTextBox\EditableRichTextbox.cs" />
     <Compile Include="Utils\RichTextBoxHelper.cs" />
+    <Compile Include="Utils\RichTextBox\Formatters\ITextFormatter.cs" />
+    <Compile Include="Utils\RichTextBox\Formatters\PlainTextFormatter.cs" />
     <Compile Include="Utils\TextBoxTraceListener.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Page Include="Views\MainWindow.xaml">
@@ -185,9 +187,9 @@
       <Project>{ea0c7504-3efa-4f69-8ca1-00a910ba5c7a}</Project>
       <Name>Lucene.Net.Toolbox.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lucene.Net.Toolbox.Shared\Lucene.Net.Toolbox.Shared.csproj">
-      <Project>{cfbd5950-d668-49c6-95ce-8816d21fb999}</Project>
-      <Name>Lucene.Net.Toolbox.Shared</Name>
+    <ProjectReference Include="..\Lucene.Net.ToolBox\Lucene.Net.Toolbox.Impl.csproj">
+      <Project>{66e9e5aa-b6a8-48b8-a17a-e132b5e4e0bb}</Project>
+      <Name>Lucene.Net.Toolbox.Impl</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net.Toolbox.App", "L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net.Toolbox.Contracts", "Lucene.Net.Toolbox.Contracts\Lucene.Net.Toolbox.Contracts.csproj", "{EA0C7504-3EFA-4F69-8CA1-00A910BA5C7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net.Toolbox.Shared", "Lucene.Net.Toolbox.Shared\Lucene.Net.Toolbox.Shared.csproj", "{CFBD5950-D668-49C6-95CE-8816D21FB999}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net.Toolbox.PlugIn", "Lucene.Net.Toolbox.Dummy\Lucene.Net.Toolbox.PlugIn.csproj", "{98FBC9D7-D78F-42B4-8122-4B5E060F608F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net.Toolbox.Tests", "Lucene.Net.Toolbox.Tests\Lucene.Net.Toolbox.Tests.csproj", "{1752FE59-C665-4CCD-B73A-60AECA9DA1B0}"
@@ -39,10 +37,6 @@ Global
 		{EA0C7504-3EFA-4F69-8CA1-00A910BA5C7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA0C7504-3EFA-4F69-8CA1-00A910BA5C7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA0C7504-3EFA-4F69-8CA1-00A910BA5C7A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CFBD5950-D668-49C6-95CE-8816D21FB999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CFBD5950-D668-49C6-95CE-8816D21FB999}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CFBD5950-D668-49C6-95CE-8816D21FB999}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CFBD5950-D668-49C6-95CE-8816D21FB999}.Release|Any CPU.Build.0 = Release|Any CPU
 		{98FBC9D7-D78F-42B4-8122-4B5E060F608F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{98FBC9D7-D78F-42B4-8122-4B5E060F608F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98FBC9D7-D78F-42B4-8122-4B5E060F608F}.Release|Any CPU.ActiveCfg = Release|Any CPU

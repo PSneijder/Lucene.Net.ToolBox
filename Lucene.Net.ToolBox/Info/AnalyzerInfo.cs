@@ -10,7 +10,7 @@ using Version = Lucene.Net.Util.Version;
 
 namespace Lucene.Net.Toolbox.Impl.Info
 {
-    public sealed class AnalyzerInfo
+    sealed class AnalyzerInfo
         : IAnalyzer
     {
         public string Field => "DUMMYFIELD";

@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using Lucene.Net.Toolbox.Shared;
+using Lucene.Net.Toolbox.Impl;
 using Lucene.Net.Toolbox.ViewModels;
 using Lucene.Net.Toolbox.Views;
 using Ninject;
@@ -26,7 +26,7 @@ namespace Lucene.Net.Toolbox
 
         private IKernel CreateKernel()
         {
-            var kernel = new StandardKernel(new SharedModule());
+            var kernel = new StandardKernel(new ImplModule());
 
             kernel.Bind<MainWindowViewModel>()
                 .ToSelf();

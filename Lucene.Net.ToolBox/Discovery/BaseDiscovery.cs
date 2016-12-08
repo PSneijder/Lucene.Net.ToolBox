@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace Lucene.Net.Toolbox.Impl.Discovery
 {
-    public abstract class BaseDiscovery
+    abstract class BaseDiscovery
         : IDiscovery
     {
         protected string AssemblyName => "Lucene.Net";

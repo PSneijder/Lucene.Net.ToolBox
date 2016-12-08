@@ -7,9 +7,9 @@
                       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
                       xmlns:interfaces="clr-namespace:Lucene.Net.Toolbox.Contracts;assembly=Lucene.Net.Toolbox.Contracts"
                       xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-                      xmlns:converters="clr-namespace:Lucene.Net.Toolbox.Converters"
-                      xmlns:utils="clr-namespace:Lucene.Net.Toolbox.Utils"
                       xmlns:behaviours="clr-namespace:Lucene.Net.Toolbox.Behaviours"
+                      xmlns:richTextBox="clr-namespace:Lucene.Net.Toolbox.Utils.RichTextBox"
+                      xmlns:formatters="clr-namespace:Lucene.Net.Toolbox.Utils.RichTextBox.Formatters"
                       mc:Ignorable="d"
                       Icon="../Resources/lucene-net-icon-256x256.ico"
                       Title="{Binding Path=Status}" Height="600" Width="600">
@@ -26,8 +26,6 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
             </ResourceDictionary.MergedDictionaries>
             
-            <converters:StringToXamlConverter x:Key="StringToXamlConverter" />
-
             <DataTemplate x:Key="AnalyzerItemTemplate"
                           DataType="{x:Type interfaces:IAnalyzer}">
                 <Grid>
@@ -93,7 +91,7 @@
                     Command="{Binding Path=AnalyzeCommand}"
                     CommandParameter="{Binding Path=CurrentAnalyzer}" />
             
-            <RichTextBox Grid.Column="0" 
+            <!--<RichTextBox Grid.Column="0" 
                          Grid.Row="0"
                          Grid.ColumnSpan="2"
                          Margin="5"
@@ -105,7 +103,18 @@
                         <Binding Path="CurrentToken.EndOffset" Mode="OneWay" />
                     </MultiBinding>
                 </utils:RichTextBoxHelper.DocumentFromXaml>
-            </RichTextBox>
+            </RichTextBox>-->
+
+            <richTextBox:EditableRichTextBox Grid.Column="0" 
+                                             Grid.Row="0"
+                                             Grid.ColumnSpan="2"
+                                             Margin="5"
+                                             VerticalScrollBarVisibility="Visible"
+                                             Text="{Binding Path=Text, Mode=TwoWay}">
+                <richTextBox:EditableRichTextBox.TextFormatter>
+                    <formatters:PlainTextFormatter />
+                </richTextBox:EditableRichTextBox.TextFormatter>
+            </richTextBox:EditableRichTextBox>
 
         </Grid>
 

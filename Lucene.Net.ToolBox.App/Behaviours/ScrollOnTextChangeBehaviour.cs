@@ -5,7 +5,7 @@ using System.Windows.Controls;
 
 namespace Lucene.Net.Toolbox.Behaviours
 {
-    internal sealed class ScrollOnTextChangedBehaviour
+    sealed class ScrollOnTextChangedBehaviour
     {
         public static bool GetScrollOnTextChanged(DependencyObject dependencyObject)
         {

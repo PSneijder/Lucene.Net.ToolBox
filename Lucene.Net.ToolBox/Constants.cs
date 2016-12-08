@@ -2,7 +2,7 @@
 
 namespace Lucene.Net.Toolbox.Impl
 {
-    internal sealed class Constants
+    sealed class Constants
     {
         public const Version IndexVersion = Version.LUCENE_30;
     }

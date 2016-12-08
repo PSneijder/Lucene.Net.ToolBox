@@ -2,7 +2,7 @@
 
 namespace Lucene.Net.Toolbox.Impl.Info
 {
-    public class TokenInfo
+    class TokenInfo
         : IToken
     {
         public string Term { get; internal set; }

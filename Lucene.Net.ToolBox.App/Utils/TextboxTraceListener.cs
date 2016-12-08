@@ -5,7 +5,7 @@ using System.Windows.Threading;
 
 namespace Lucene.Net.Toolbox.Utils
 {
-    internal sealed class TextBoxTraceListener
+    sealed class TextBoxTraceListener
             : TraceListener
     {
         private readonly TextBoxBase _textBox;
