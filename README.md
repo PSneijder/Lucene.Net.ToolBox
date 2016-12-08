@@ -18,6 +18,7 @@ The tokens produced are shown below and when you select them the right panel sho
 * Reading index from hdfs
 * Exporting the index or portion of it into an xml format
 * <strike>Testing your custom Lucene analyzers</strike>
+* <strike>Token highlighting</strike>
 
 # Recent Changes
 See [CHANGES.txt](CHANGES.txt)
