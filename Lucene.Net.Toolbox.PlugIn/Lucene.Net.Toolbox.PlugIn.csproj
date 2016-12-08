@@ -101,7 +101,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)\Lucene.Net.ToolBox.App\bin\Debug\PlugIns\$(TargetFileName)</PostBuildEvent>
+    <PostBuildEvent>echo "Copying PlugIn"
+copy $(TargetPath) $(SolutionDir)\Lucene.Net.ToolBox.Desktop\bin\Debug\PlugIns\$(TargetFileName)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,6 +1,6 @@
 ﻿using Version = Lucene.Net.Util.Version;
 
-namespace Lucene.Net.Toolbox.Impl
+namespace Lucene.Net.Toolbox
 {
     sealed class Constants
     {

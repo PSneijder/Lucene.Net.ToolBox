@@ -1,5 +1,5 @@
 ﻿
-namespace Lucene.Net.Toolbox.Impl.Discovery
+namespace Lucene.Net.Toolbox.Discovery
 {
     sealed class DefaultDiscovery
         : BaseDiscovery

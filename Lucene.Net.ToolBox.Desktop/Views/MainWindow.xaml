@@ -27,7 +27,9 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            
+
+            <formatters:HighlightTextFormatter x:Key="HighlightTextFormatter" />
+
             <DataTemplate x:Key="AnalyzerItemTemplate"
                           DataType="{x:Type interfaces:IAnalyzer}">
                 <Grid>
@@ -98,13 +100,10 @@
                                              Grid.ColumnSpan="2"
                                              Margin="5"
                                              VerticalScrollBarVisibility="Visible"
-                                             Text="{Binding Path=Text, Mode=TwoWay}">
-                
-                <richTextBox:EditableRichTextBox.TextFormatter>
-                    <formatters:PlainTextFormatter />
-                </richTextBox:EditableRichTextBox.TextFormatter>
-                
-            </richTextBox:EditableRichTextBox>
+                                             Text="{Binding Path=Text, Mode=TwoWay}"
+                                             TextHighlightColor="Yellow"
+                                             TextFormatter="{StaticResource HighlightTextFormatter}"
+                                             TextFormatterParameter="{Binding Path=CurrentToken}" />
 
         </Grid>
 

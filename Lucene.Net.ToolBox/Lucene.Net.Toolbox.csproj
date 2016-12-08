@@ -7,8 +7,8 @@
     <ProjectGuid>{66E9E5AA-B6A8-48B8-A17A-E132B5E4E0BB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Lucene.Net.Toolbox.Impl</RootNamespace>
-    <AssemblyName>Lucene.Net.Toolbox.Impl</AssemblyName>
+    <RootNamespace>Lucene.Net.Toolbox</RootNamespace>
+    <AssemblyName>Lucene.Net.Toolbox</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -96,7 +96,7 @@
     <Compile Include="Discovery\BaseDiscovery.cs" />
     <Compile Include="Discovery\DefaultDiscovery.cs" />
     <Compile Include="Discovery\FileSystemDiscovery.cs" />
-    <Compile Include="ImplModule.cs" />
+    <Compile Include="ToolboxModule.cs" />
     <Compile Include="Info\AnalyzerInfo.cs" />
     <Compile Include="Info\TokenInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

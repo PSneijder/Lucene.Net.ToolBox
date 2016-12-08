@@ -6,7 +6,7 @@ using System.Threading;
 using System.Timers;
 using Timer = System.Timers.Timer;
 
-namespace Lucene.Net.Toolbox.Impl.Discovery
+namespace Lucene.Net.Toolbox.Discovery
 {
     sealed class FileSystemDiscovery
         : BaseDiscovery

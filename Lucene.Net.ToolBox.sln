@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net.Toolbox.Impl", "Lucene.Net.ToolBox\Lucene.Net.Toolbox.Impl.csproj", "{66E9E5AA-B6A8-48B8-A17A-E132B5E4E0BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net.Toolbox", "Lucene.Net.ToolBox\Lucene.Net.Toolbox.csproj", "{66E9E5AA-B6A8-48B8-A17A-E132B5E4E0BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net.Toolbox.Desktop", "Lucene.Net.ToolBox.App\Lucene.Net.Toolbox.Desktop.csproj", "{AD7435E6-AD27-4A21-993B-33B5350FC497}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net.Toolbox.Desktop", "Lucene.Net.ToolBox.Desktop\Lucene.Net.Toolbox.Desktop.csproj", "{AD7435E6-AD27-4A21-993B-33B5350FC497}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net.Toolbox.Contracts", "Lucene.Net.Toolbox.Contracts\Lucene.Net.Toolbox.Contracts.csproj", "{EA0C7504-3EFA-4F69-8CA1-00A910BA5C7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net.Toolbox.PlugIn", "Lucene.Net.Toolbox.Dummy\Lucene.Net.Toolbox.PlugIn.csproj", "{98FBC9D7-D78F-42B4-8122-4B5E060F608F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net.Toolbox.PlugIn", "Lucene.Net.Toolbox.PlugIn\Lucene.Net.Toolbox.PlugIn.csproj", "{98FBC9D7-D78F-42B4-8122-4B5E060F608F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net.Toolbox.Tests", "Lucene.Net.Toolbox.Tests\Lucene.Net.Toolbox.Tests.csproj", "{1752FE59-C665-4CCD-B73A-60AECA9DA1B0}"
 EndProject

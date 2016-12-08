@@ -58,9 +58,9 @@
       <Project>{ea0c7504-3efa-4f69-8ca1-00a910ba5c7a}</Project>
       <Name>Lucene.Net.Toolbox.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lucene.Net.ToolBox\Lucene.Net.Toolbox.Impl.csproj">
+    <ProjectReference Include="..\Lucene.Net.ToolBox\Lucene.Net.Toolbox.csproj">
       <Project>{66e9e5aa-b6a8-48b8-a17a-e132b5e4e0bb}</Project>
-      <Name>Lucene.Net.Toolbox.Impl</Name>
+      <Name>Lucene.Net.Toolbox</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

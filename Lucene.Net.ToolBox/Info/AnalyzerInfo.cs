@@ -1,14 +1,14 @@
-﻿using Lucene.Net.Analysis;
-using Lucene.Net.Analysis.Tokenattributes;
-using Lucene.Net.Toolbox.Contracts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Lucene.Net.Analysis;
+using Lucene.Net.Analysis.Tokenattributes;
+using Lucene.Net.Toolbox.Contracts;
 using Version = Lucene.Net.Util.Version;
 
-namespace Lucene.Net.Toolbox.Impl.Info
+namespace Lucene.Net.Toolbox.Info
 {
     sealed class AnalyzerInfo
         : IAnalyzer

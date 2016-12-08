@@ -1,6 +1,6 @@
 ﻿using Lucene.Net.Toolbox.Contracts;
 
-namespace Lucene.Net.Toolbox.Impl.Info
+namespace Lucene.Net.Toolbox.Info
 {
     class TokenInfo
         : IToken

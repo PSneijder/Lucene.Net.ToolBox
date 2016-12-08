@@ -1,11 +1,11 @@
 ﻿using Lucene.Net.Toolbox.Contracts;
-using Lucene.Net.Toolbox.Impl.Discovery;
-using Lucene.Net.Toolbox.Impl.Info;
+using Lucene.Net.Toolbox.Discovery;
+using Lucene.Net.Toolbox.Info;
 using Ninject.Modules;
 
-namespace Lucene.Net.Toolbox.Impl
+namespace Lucene.Net.Toolbox
 {
-    public sealed class ImplModule
+    public sealed class ToolboxModule
         : NinjectModule
     {
         public override void Load()

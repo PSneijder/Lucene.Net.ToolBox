@@ -1,12 +1,12 @@
-﻿using Lucene.Net.Analysis;
-using Lucene.Net.Toolbox.Contracts;
-using Lucene.Net.Toolbox.Impl.Info;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using Lucene.Net.Analysis;
+using Lucene.Net.Toolbox.Contracts;
+using Lucene.Net.Toolbox.Info;
 
-namespace Lucene.Net.Toolbox.Impl.Discovery
+namespace Lucene.Net.Toolbox.Discovery
 {
     abstract class BaseDiscovery
         : IDiscovery

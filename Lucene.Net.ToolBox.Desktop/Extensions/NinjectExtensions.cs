@@ -1,5 +1,4 @@
-﻿using Lucene.Net.Toolbox.Impl;
-using Ninject;
+﻿using Ninject;
 
 namespace Lucene.Net.Toolbox.Desktop.Extensions
 {
@@ -7,7 +6,7 @@ namespace Lucene.Net.Toolbox.Desktop.Extensions
     {
         public static void Initialize(this IKernel kernel)
         {
-            kernel.Load(new ImplModule(), new DesktopModule());
+            kernel.Load(new ToolboxModule(), new DesktopModule());
         }
     }
 }
