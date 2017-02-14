@@ -1,5 +1,8 @@
 # Lucene.Net.ToolBox
 
+![](https://img.shields.io/badge/.net-v4.5.2-blue.svg)
+![](https://img.shields.io/badge/build-passing-green.svg)
+
 ![alt tag](https://github.com/PSneijder/Lucene.Net.ToolBox/blob/master/Assets/Lucene.Net.ToolBox.png)
 
 Lucene.Net.ToolBox is a handy development and diagnostic tool for Lucene.
@@ -11,7 +14,7 @@ The tokens produced are shown below and when you select them the right panel sho
 
 ![alt tag](https://github.com/PSneijder/Lucene.Net.ToolBox/blob/master/Assets/CodeMap.png)
 
-# TODOs
+## TODOs
 * Viewing your documents and analyzing their field contents
 * Searching in the index
 * Performing index maintenance: index sanity checking, index optimization
@@ -20,11 +23,11 @@ The tokens produced are shown below and when you select them the right panel sho
 * <strike>Testing your custom Lucene analyzers</strike>
 * <strike>Token highlighting</strike>
 
-# Recent Changes
+## Recent Changes
 See [CHANGES.txt](CHANGES.txt)
 
-# Committers
+## Committers
 * [Philip Schneider](https://github.com/PSneijder)
 
-# Licensing
+## Licensing
 The license for the code is [ALv2](http://www.apache.org/licenses/LICENSE-2.0.html).
